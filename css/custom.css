@@ -1,0 +1,295 @@
+
+.customize-menu{
+    padding-top: 10px;
+}
+.customize-menu li{
+	
+}
+.customize-menu li a{
+	padding: 5px 20px;
+}
+.customize-menu li.active a{
+	padding: 5px 20px;
+	border-radius: 0px !important;
+	font-weight: bold;
+}
+
+/* --------------------------------- */
+/* 6. Skills Section Styles
+ ----------------------------------- */
+
+#skill {
+    background: url('../img/skills-bg.jpg') no-repeat scroll center center / cover;
+	padding: 0px;
+}
+
+#skill .sec-overlay {
+    background: rgba(255,255,255, .92);
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 100px; 
+}
+
+.skill-inner {
+    margin-top: 0px;
+}
+
+.skill-graph {
+    margin-bottom: 0px;
+}
+
+.skill-graph .single-skill {
+    /*float: left;*/
+    height: 490px;
+    width: 60px;
+    position: relative;
+}
+
+.after-li {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    height: 350px;
+}
+
+.singel-hr {
+    position: relative;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.skill-title,
+.skill-count {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    position: absolute;
+}
+
+.skill-title {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.skill-count {
+    font-size: 15px;
+}
+
+.skill-title {
+    top: -100px;
+}
+.skill-count {
+    bottom: 0;
+}
+
+.singel-hr-inner {
+    position: absolute;
+    width: 100%;
+    bottom: 33px;
+    border-radius: 2px;
+    height: 0px;
+    -webkit-transition: all 1.2s;
+            transition: all 1.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+            transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.skill-visiable {
+    position: relative;
+}
+
+.hr-wrap {
+    height: 73px;
+    width: 1px;
+    position: absolute;
+    top: -73px;
+    left: 50%;
+}
+
+.hrc:after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: -3px;
+}
+
+.root-sec {
+    position: relative;
+}
+
+.btn-wrapp {
+    position: absolute;
+    right:1.4%;
+    top:55.8%;
+}
+.btn-wrapp a {
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+	cursor: pointer;
+    line-height: 54px;
+}
+
+.btn-wrapp a:last-child {
+    margin-bottom: 0;
+}
+
+.skill-wrap .btn-wrapp {
+    bottom: 7.5%;
+    top: auto;
+    right: 4%;
+}
+
+
+.brand-text {
+    color: #00bcd4 !important;
+}
+
+.brand-text i {
+    color: #00bcd4 !important;
+}
+
+.brand-bg,
+.sweet-alert button {
+    background-color: #0A8FD5 !important;
+}
+
+.waves-effect.waves-brand  {
+    background-color: rgba(0, 188, 212, 0.66);
+}
+
+.p-overlay {
+    background-color: rgba(0, 188, 212, 0.9);
+}
+
+
+.circle-loader .path {
+    stroke: #00bcd4;
+}
+
+
+.side-nav  li.current a,
+.side-nav  li a:hover {
+    border-bottom-color: #00bcd4;
+}
+
+.static-menu li i:hover,
+.static-menu li a:hover,
+.submenu-ul li a:hover,
+.home-title span,
+.about-subtitle,
+.person-about > a.btn-large,
+.about-social ul li a i,
+.skill-title,
+.skill-count,
+.single-widget ul li a,
+.single-post-content a,
+.share-post li a:hover,
+.com-title a,
+span.num {
+    color: #0A8FD5;
+}
+
+.singel-hr-inner,
+.hr-wrap,
+.hrc:after,
+.thumb-slides-container.owl-theme .owl-controls .owl-page.active span,
+.blog-inner .card-content a.right:hover,
+.blog-inner .card-content a.right:focus,
+.contact-form .submit-btn:hover,
+.contact-form .submit-btn:focus,
+a.tags,
+.blog-inner .card-content a.right:active {
+    background-color: #0A8FD5;
+}
+
+.contact-form .materialize-textarea:focus,
+.contact-form .input-box:focus {
+    border-color: #00bcd4;
+    box-shadow: 0px 1px 0px #00bcd4;
+}
+
+
+.single-post-content blockquote {
+    border-left: 5px solid #00bcd4;
+}
+
+
+
+@-webkit-keyframes color {
+    0%   {stroke: #00bcd4;}
+    20%  {stroke: #00bcd4;}
+    25%  {stroke: #00bcd4;}
+    45%  {stroke: #00bcd4;}
+    50%  {stroke: #00bcd4;}
+    70%  {stroke: #00bcd4;}
+    75%  {stroke: #00bcd4;}
+    95%  {stroke: #00bcd4;}
+}
+
+@keyframes color {
+    0%   {stroke: #00bcd4;}
+    20%  {stroke: #00bcd4;}
+    25%  {stroke: #00bcd4;}
+    45%  {stroke: #00bcd4;}
+    50%  {stroke: #00bcd4;}
+    70%  {stroke: #00bcd4;}
+    75%  {stroke: #00bcd4;}
+    95%  {stroke: #00bcd4;}
+}
+
+
+/* Add your CSS below */
+
+
+.menu-select [type="radio"]:checked + label:after {
+    border-color: #00bcd4;
+    background-color: #00bcd4;
+}
+
+.service-heading{
+    font-size: 16px;
+    font-weight: 700;
+}
+.service-text{
+    font-size: 16px;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
+.about-content p{
+	font-size: 16px;
+}
+.white-cl{
+	color: #fff;
+}
+
+.pd-bt-70{
+    padding-bottom: 70px;
+}
+.image-planing {
+    text-align: left;
+    padding-bottom: 15px;
+    height: auto;
+    max-width: 100%;
+}
+.image-planing img{
+    max-width: 60%;
+    height: auto;
+}
+.process-heading{
+	font-size: 16px;
+    font-weight: 800;
+}
