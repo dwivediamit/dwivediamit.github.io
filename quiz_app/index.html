@@ -1,0 +1,105 @@
+<!doctype html>
+<html ng-app="quiz" >
+<head>
+  <meta charset="utf-8">
+  <title>Cricket Trivia</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" /> 
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+
+  <section>
+    <div class="container" ng-controller="QuizController">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="heading">Cricket Trivia</h1>
+        </div>
+        <div class="col-sm-8">
+          <div >
+
+            <div class="panel-group" id="accordion">
+              <div class="panel panel-default" ng-repeat="question in questions">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" class="question" data-parent="#accordion" data-target="#collapse{{$index}}">
+                      {{$index+1}}. {{ question.questionText }}
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapse{{$index}}" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="row" id="quest_{{$parent.$index}}">
+                      <div class="col-sm-6" ng-repeat="answer in question.answers">
+                        <div class="well well-sm isCorrect_{{answer.selected}}">
+<label class="radio_container" for="quest_{{$parent.$index}}_answer_{{$index}}"> {{ answer.answerText }} 
+  <input type="radio" id="quest_{{$parent.$index}}_answer_{{$index}}" ng-model="answers[$parent.$index]" value="{{ answer.answerText }}" name="quest_{{$parent.$index}}_answers">
+  <span class="checkmark"></span>
+</label>
+                        </div>
+                        
+                      </div>
+                     </div>
+
+                  </div>
+                </div>
+              </div>
+            </div> 
+
+            <div class="row">
+              <div class="col-sm-6">
+                <button class="btn btn-default btn-block" type="submit" ng:click="showResult()">Submit</button>
+              </div>
+              <div class="col-sm-6">
+                <button class="btn btn-default btn-block" type="button" ng-click="CheckPassport()" >Reset</button>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="well">
+                  <p>you got {{ correctCount }} out of {{questions.length}} right</p>
+                </div>
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+
+          <div class="graph">
+
+            <div class="correct_ans">
+              <div class="progress_success" style="height: {{ ((correctCount/questions.length)*100) }}%;">
+                {{ ((correctCount/questions.length)*100) }}%
+              </div>
+            </div>
+            <div class="incorrect_ans">
+              <div class="progress_error" style="height:{{ (((correctCount - questions.length)/questions.length)*100) }}%;">
+                {{ (((correctCount - questions.length)/questions.length)*100) }}%
+              </div>
+              <!-- {{ correctCount - questions.length}} -->
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="text-center">Correct</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-center">Incorrect</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/angular.js"></script>
+  <script src="js/app.js"></script>
+  
+ </body>
+</html>
