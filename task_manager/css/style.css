@@ -67,6 +67,10 @@ body {
 	padding: 20px;
 	outline: none;
 }
+.card_body_edit{
+	padding: 20px;
+	outline: none;
+}
 .add_card {
     padding: 10px 20px;
     background: #a0b7b7;

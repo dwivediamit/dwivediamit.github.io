@@ -31,6 +31,8 @@ $(function () {
 
     var cont;
     var GetCard_index;
+    var GetCard_edit_index;
+
     
     // $(".card_body[contenteditable=true]").focus(function() {
 
@@ -116,15 +118,35 @@ $(function () {
 
         console.log(Get_task , Get_task_description);
 
-        var card_section = "<div class='col-sm-4 col-lg-4 col-xs-12'><div class='card' ><span class='glyphicon glyphicon-remove removeTask'></span><div class='card_body' contenteditable='true'>" +Get_task_description+ "</div></div></div>";
-        $(Content_blank).append(card_section);
+        var card_section_edit = "<div class='col-sm-4 col-lg-4 col-xs-12'><div class='card' ><span class='glyphicon glyphicon-remove removeTask'></span><div class='card_body_edit' contenteditable='true'>" +Get_task_description+ "</div></div></div>";
+        $(Content_blank).append(card_section_edit);
       }
+
+      // Edit card 
+
+      $('.card_body_edit').on('blur', function () {
+        var GetCard_edit_index = $(this).parent().parent().index();
+        console.log(GetCard_edit_index);
+
+        var edited_content = $(this).html();
+
+        var Edit_card_key = keys[GetCard_edit_index];
+        console.log(Edit_card_key);
+
+        saveTask.child(Edit_card_key).update({task_description:edited_content}).then (function () {
+            console.log("Updated");
+        }).catch(function (error) {
+            console.log(error);
+        })
+      })
 
       // Remove Card...
       
       $('.removeTask').on('click', function () {
+
         var GetCard_index = $(this).parent().parent().index();
         // console.log(GetCard_index);
+        $(this).parent().parent().remove();
         var Single_key = keys[GetCard_index];
         console.log(Single_key);
 
@@ -133,7 +155,9 @@ $(function () {
         }).catch(function (error) {
             console.log(error);
         })
+
       });
+
     }
  
     function errData(error) {
