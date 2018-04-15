@@ -99,6 +99,7 @@ $(function () {
     saveTask.on("value", gotData, errData);
 
     function gotData(data) {
+      var Content_blank = $('.append_card').html('');
       var Taskmanager = data.val();
 
       // Grab the keys to iterate over the object
@@ -106,7 +107,6 @@ $(function () {
 
       console.log(keys);
 
-      var Content_blank = $('.append_card').html('');
       for (var i = 0; i < keys.length; i++) {
         var key = keys[i];
 
@@ -146,7 +146,7 @@ $(function () {
 
         var GetCard_index = $(this).parent().parent().index();
         // console.log(GetCard_index);
-        $(this).parent().parent().remove();
+        // $(this).parent().parent().remove();
         var Single_key = keys[GetCard_index];
         console.log(Single_key);
 
