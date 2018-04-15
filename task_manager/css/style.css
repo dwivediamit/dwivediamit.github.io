@@ -1,0 +1,91 @@
+
+/*========Task Manager Css========*/
+
+body {
+    background: #efefef;
+    font-family: Helvetica, Arial
+}
+
+*{
+	margin: 0 auto;
+	padding: 0 auto;
+}
+
+
+/*====Common Css===*/
+
+
+/*=====Navbar======*/
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navbar-brand {
+    float: none;
+    padding: 4px;
+    display: block;
+}
+
+.navbar-brand img{
+	height: 42px;
+}
+/*=====Task======*/
+
+.task_manager_section {
+    margin-top: 70px;
+}
+
+/*=====Card=====*/
+
+.card {
+    position: relative;
+    background: #fff;
+    transition: all 0.4s;
+    margin-bottom: 20px;
+}
+.card:hover {
+    background: #fff;
+    box-shadow: 0px 3px 6px 1px #d6d4d4;
+}
+.removeTask {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+    /*transition: all 0.6s;*/
+    visibility: hidden;
+}
+.card:hover .removeTask {
+    visibility: visible;
+    transition: all 0.4s;
+}
+
+.card_body{
+	padding: 20px;
+	outline: none;
+}
+.add_card {
+    padding: 10px 20px;
+    background: #a0b7b7;
+    transition: all 0.4s;
+    cursor: pointer;
+    width: 280px;
+    align-items: left;
+    text-align: left;
+}
+.add_card:hover {
+    background: #8ba9a9;
+    box-shadow: 0px 3px 6px 1px #d6d4d4;
+}
+.add_task {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+}
+.add_task .glyphicon.glyphicon-plus {
+    font-size: 15px;
+    padding-left: 5px;
+}
