@@ -33,8 +33,6 @@ $(function () {
     var GetCard_index;
     var GetCard_edit_index;
 
-    var task_editing = false;
-
     
     // $(".card_body[contenteditable=true]").focus(function() {
 
@@ -55,8 +53,8 @@ $(function () {
             // Saving data to firebase
 
             var data = {
-                task: task_editing,
-                task_description: cont,
+                task: 'Task',
+                task_description: cont 
             }
 
             // Pushing data to firebase
@@ -101,8 +99,6 @@ $(function () {
     saveTask.on("value", gotData, errData);
 
     function gotData(data) {
-
-        console.log(data);
       var Content_blank = $('.append_card').html('');
       var Taskmanager = data.val();
 
@@ -120,12 +116,6 @@ $(function () {
         var Get_task = Taskmanager[key].task;
         var Get_task_description = Taskmanager[key].task_description;
 
-        if(Get_task == true){
-            $('.editing').addClass('show_edit');
-        }else if(Get_task == false){
-            $('.editing').removeClass('show_edit');
-        }
-
         console.log(Get_task , Get_task_description);
 
         var card_section_edit = "<div class='col-sm-4 col-lg-4 col-xs-12'><div class='card' ><span class='glyphicon glyphicon-remove removeTask'></span><div class='card_body_edit' contenteditable='true'>" +Get_task_description+ "</div></div></div>";
@@ -134,48 +124,7 @@ $(function () {
 
       // Edit card 
 
-      $('.card_body_edit').on('focus', function () {
-        //$(this).parent().find('.editing').addClass('show_edit');
-        // $(this).focus();
-
-
-        var GetCard_edit_index_focus = $(this).parent().parent().index();
-        console.log(GetCard_edit_index_focus);
-
-        //$(GetCard_edit_index_focus).addClass('hh');
-        // GetCard_edit_index_focus.html('');
-
-        // var edited_content = $(this).html();
-        var Edit_card_key_f1 = keys[GetCard_edit_index_focus];
-        var task_editing2 = true;
-
-        console.log("Here is F1" + Edit_card_key_f1);
-
-
-       saveTask.child(Edit_card_key_f1).update({task: task_editing2}).then (function () {
-                console.log("Updating");
-                $(this).focus();
-                //alert('hi');
-            }).catch(function (error) {
-                console.log(error);
-            })
-        
-
-        // var v1 = Taskmanager[Edit_card_key_f1].task;
-        // console.log("hhjdhjads" + v1);
-
-        // if(v1 == true){
-        //     console.log('ff');
-        // }
-
-
-      });
-
-
       $('.card_body_edit').on('blur', function () {
-        
-        var task_editing3 = false;
-            
         var GetCard_edit_index = $(this).parent().parent().index();
         console.log(GetCard_edit_index);
 
@@ -184,7 +133,7 @@ $(function () {
         var Edit_card_key = keys[GetCard_edit_index];
         console.log(Edit_card_key);
 
-        saveTask.child(Edit_card_key).update({task_description:edited_content, task:task_editing3}).then (function () {
+        saveTask.child(Edit_card_key).update({task_description:edited_content}).then (function () {
             console.log("Updated");
         }).catch(function (error) {
             console.log(error);
