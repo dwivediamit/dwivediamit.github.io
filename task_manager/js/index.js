@@ -99,6 +99,9 @@ $(function () {
     saveTask.on("value", gotData, errData);
 
     function gotData(data) {
+
+      var focused_edit;
+
       var Content_blank = $('.append_card').html('');
       var Taskmanager = data.val();
 
@@ -116,15 +119,59 @@ $(function () {
         var Get_task = Taskmanager[key].task;
         var Get_task_description = Taskmanager[key].task_description;
 
+
+
         console.log(Get_task , Get_task_description);
 
-        var card_section_edit = "<div class='col-sm-4 col-lg-4 col-xs-12'><div class='card' ><span class='glyphicon glyphicon-remove removeTask'></span><div class='card_body_edit' contenteditable='true'>" +Get_task_description+ "</div></div></div>";
+        var card_section_edit = "<div class='col-sm-4 col-lg-4 col-xs-12'><div class='card' ><span class='glyphicon glyphicon-remove removeTask'></span><span class='glyphicon glyphicon-pencil editing " +Get_task+ "'></span><div class='card_body_edit' contenteditable='true'>" +Get_task_description+ "</div></div></div>";
         $(Content_blank).append(card_section_edit);
+
+        $('.editing.showedit').next().focus();
+
       }
 
       // Edit card 
 
+      $('.card_body_edit').on('focus', function () {
+
+        var GetCard_edit_index = $(this).parent().parent().index();
+        console.log("focused " + GetCard_edit_index);
+
+        var Edit_card_key = keys[GetCard_edit_index];
+        console.log("focused " + Edit_card_key);
+
+        focused_edit = 'showedit';
+        console.log("what is the state" + focused_edit);
+        // replace myFirebase.set(...); with the next line
+        //saveTask.child(Edit_card_key).update({task:focused_edit});
+
+        saveTask.child(Edit_card_key).update({task:focused_edit}).then (function () {
+            console.log("Updated hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+
+            var task_vaue = Taskmanager[Edit_card_key].task;
+            console.log("hello i am here " + task_vaue);
+            // $('.card_body_edit').focus();
+            // $('.card_body_edit').css("background-color", "yellow");
+        }).catch(function (error) {
+            console.log(error);
+        })
+
+
+
+        // if(Get_task == true){
+        //     $(this).focus();
+        //     $(this).css("background-color", "yellow");
+        // }
+
+      });
+
       $('.card_body_edit').on('blur', function () {
+      //   focused_edit = false;
+      //   console.log("what is the state" + focused_edit);
+      //   if(focused_edit == false){
+      //   $(this).css("background-color", "transparent");
+      // }
+      focused_edit = 'noedit';
         var GetCard_edit_index = $(this).parent().parent().index();
         console.log(GetCard_edit_index);
 
@@ -133,12 +180,14 @@ $(function () {
         var Edit_card_key = keys[GetCard_edit_index];
         console.log(Edit_card_key);
 
-        saveTask.child(Edit_card_key).update({task_description:edited_content}).then (function () {
+        saveTask.child(Edit_card_key).update({task_description:edited_content, task:focused_edit}).then (function () {
             console.log("Updated");
         }).catch(function (error) {
             console.log(error);
         })
       })
+
+      
 
       // Remove Card...
       
@@ -157,6 +206,8 @@ $(function () {
         })
 
       });
+
+
 
     }
  
