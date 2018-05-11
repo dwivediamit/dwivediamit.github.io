@@ -150,28 +150,16 @@ $(function () {
 
             var task_vaue = Taskmanager[Edit_card_key].task;
             console.log("hello i am here " + task_vaue);
-            // $('.card_body_edit').focus();
-            // $('.card_body_edit').css("background-color", "yellow");
+            
         }).catch(function (error) {
             console.log(error);
         })
 
-
-
-        // if(Get_task == true){
-        //     $(this).focus();
-        //     $(this).css("background-color", "yellow");
-        // }
-
       });
 
       $('.card_body_edit').on('blur', function () {
-      //   focused_edit = false;
-      //   console.log("what is the state" + focused_edit);
-      //   if(focused_edit == false){
-      //   $(this).css("background-color", "transparent");
-      // }
-      focused_edit = 'noedit';
+        
+        focused_edit = 'noedit';
         var GetCard_edit_index = $(this).parent().parent().index();
         console.log(GetCard_edit_index);
 
